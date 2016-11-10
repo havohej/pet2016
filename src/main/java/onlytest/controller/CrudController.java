@@ -17,7 +17,7 @@ public class CrudController {
 
 	@GetMapping("/select")
 	public List<Map<String, Object>> select() {
-		return testDAO.select();
+		return testDAO.selectByXml();
 	}
 
 }

@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Select;
 public interface ITestDAO {
 
 	@Select("select * from test")
-	List<Map<String, Object>> select();
+	List<Map<String, Object>> selectByAnnotation();
+
+	List<Map<String, Object>> selectByXml();
 
 }

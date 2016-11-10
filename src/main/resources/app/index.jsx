@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Tab, Row, Col, Nav, NavItem} from 'react-bootstrap';
+import Todo from './view/Todo.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
             <Col xs={8} sm={9} md={10}>
               <Tab.Content animation>
                 <Tab.Pane eventKey="1">
-                
+                  <Todo />
                 </Tab.Pane>
                 <Tab.Pane eventKey="2">
                 
