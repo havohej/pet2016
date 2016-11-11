@@ -15,10 +15,13 @@ class App extends React.Component {
             <Col xs={4} sm={3} md={2}>
               <Nav bsStyle="pills" stacked>
                 <NavItem eventKey="1">
-                  TodoList without DB
+                  TodoList (mem)
                 </NavItem>
                 <NavItem eventKey="2">
-                  CRUD with H2DB
+                  TodoList (H2DB)
+                </NavItem>
+                <NavItem eventKey="3">
+                  CRUD (H2DB)
                 </NavItem>
               </Nav>
             </Col>
@@ -28,7 +31,8 @@ class App extends React.Component {
                   <Todo />
                 </Tab.Pane>
                 <Tab.Pane eventKey="2">
-                
+                </Tab.Pane>
+                <Tab.Pane eventKey="3">
                 </Tab.Pane>
               </Tab.Content>
             </Col>
