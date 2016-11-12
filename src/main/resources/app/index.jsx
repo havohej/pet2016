@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Tab, Row, Col, Nav, NavItem} from 'react-bootstrap';
 import Todo from './view/Todo.jsx';
+import Todo2 from './view/Todo2.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,10 +19,10 @@ class App extends React.Component {
                   TodoList (mem)
                 </NavItem>
                 <NavItem eventKey="2">
-                  TodoList (H2DB)
+                  TodoList (DB)
                 </NavItem>
                 <NavItem eventKey="3">
-                  CRUD (H2DB)
+                  CRUD
                 </NavItem>
               </Nav>
             </Col>
@@ -31,6 +32,7 @@ class App extends React.Component {
                   <Todo />
                 </Tab.Pane>
                 <Tab.Pane eventKey="2">
+                  <Todo2 />
                 </Tab.Pane>
                 <Tab.Pane eventKey="3">
                 </Tab.Pane>

@@ -10,7 +10,7 @@ export default class CompletedList extends React.Component {
 		  	<div>
 		        {
 		            this.props.items.map((item, key) => (
-		                <div key={item.id}><del><p style={{color:'gray'}}>{item.text}</p></del></div>
+		                <div key={item.ID}><del><p style={{color:'gray'}}>{item.TEXT}</p></del></div>
 		            ))
 		        }
 		    </div>

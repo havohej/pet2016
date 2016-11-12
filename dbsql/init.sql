@@ -1,2 +1,12 @@
+-- create sequence
+create sequence todolist_seq;
+
 -- create table
-CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255));
+create table todolist
+(
+	id bigint default todolist_seq.nextval primary key,
+	text varchar(255),
+	status char(1),
+	createtime datetime,
+	completedtime datetime
+);

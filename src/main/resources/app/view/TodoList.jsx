@@ -11,9 +11,9 @@ export default class TodoList extends React.Component {
 		  	<div>
 		        {
 		            this.props.items.map((item, key) => (
-		                <span key={item.id}><Checkbox onChange={(event) => {
+		                <span key={item.ID}><Checkbox onChange={(event) => {
 		                	this.props.handleCompleted(event, item, key)}
-		                }>{item.text}</Checkbox></span>
+		                }>{item.TEXT}</Checkbox></span>
 		            ))
 		        }
 		    </div>

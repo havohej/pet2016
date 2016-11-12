@@ -4,7 +4,7 @@ import { Button, FormGroup, ControlLabel, FormControl, Row, Col } from 'react-bo
 import TodoList from './TodoList.jsx';
 import CompletedList from './CompletedList.jsx';
 
-export default class Todo extends React.Component {
+export default class Todo2 extends React.Component {
     constructor(props) {
         super(props);
         this.onChange = this.onChange.bind(this);
@@ -18,31 +18,78 @@ export default class Todo extends React.Component {
         }
     }
 
+    componentDidMount() {
+        $.ajax({
+            type: "GET",
+            url: "/todolist/reload", 
+            success: function(result,status,xhr) {
+                this.setState({
+                    items : result.items,
+                    completedItems : result.completedItems
+                })
+            }.bind(this),
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('error = ' + errorThrown);
+            }.bind(this)
+        });
+    }
+
+    componentWillUnmount() {
+    }
+
     onChange(e) {
         this.setState({text: e.target.value});      
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const items = this.state.items.concat([{TEXT: this.state.text, ID: Date.now()}]);
-        const nextText = '';
-        this.setState({items: items, text: nextText});
+        $.ajax({
+            type: "PUT",
+            url: "/todolist/addTodo", 
+            data: {text: this.state.text},
+            success: function(result,status,xhr) {
+                this.setState({
+                    items : result.items,
+                    completedItems : result.completedItems
+                })
+            }.bind(this),
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('error = ' + errorThrown);
+            }.bind(this)
+        });
     }
 
     handleCompleted(event, item, key) {
-        const items = this.state.items;
-        items.splice(key, 1);
-        const completedItems = this.state.completedItems.concat(item);
-        this.setState({
-            items: items,
-            completedItems: completedItems
-        })
+        $.ajax({
+            type: "POST",
+            url: "/todolist/completeTodo", 
+            data: {id: item.ID},
+            success: function(result,status,xhr) {
+                this.setState({
+                    items : result.items,
+                    completedItems : result.completedItems
+                })
+            }.bind(this),
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('error = ' + errorThrown);
+            }.bind(this)
+        });
     }
 
     cleanCompleted() {
-        this.setState({
-            completedItems: []
-        })
+        $.ajax({
+            type: "DELETE",
+            url: "/todolist/cleanCompleted",
+            success: function(result,status,xhr) {
+                this.setState({
+                    items : result.items,
+                    completedItems : result.completedItems
+                })
+            }.bind(this),
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('error = ' + errorThrown);
+            }.bind(this)
+        });
     }
 
     render() {
