@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Tab, Row, Col, Nav, NavItem} from 'react-bootstrap';
 import Todo from './view/Todo.jsx';
 import Todo2 from './view/Todo2.jsx';
+import FormValidation from './view/FormValidation.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="1">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="3">
           <Row className="clearfix">
             <Col xs={4} sm={3} md={2}>
               <Nav bsStyle="pills" stacked>
@@ -22,7 +23,8 @@ class App extends React.Component {
                   TodoList (DB)
                 </NavItem>
                 <NavItem eventKey="3">
-                  CRUD
+                  Form Validation
+                  (front end)
                 </NavItem>
               </Nav>
             </Col>
@@ -35,6 +37,7 @@ class App extends React.Component {
                   <Todo2 />
                 </Tab.Pane>
                 <Tab.Pane eventKey="3">
+                  <FormValidation />
                 </Tab.Pane>
               </Tab.Content>
             </Col>
