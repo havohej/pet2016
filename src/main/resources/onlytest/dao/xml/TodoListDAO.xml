@@ -8,6 +8,7 @@
         select * from todolist where status = 'U'
         order by createtime
     </select>
+    
     <select id="selectCompleted" resultType="hashMap">
         select * from todolist where status = 'C'
         order by completedtime

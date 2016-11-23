@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.math.NumberUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +21,15 @@ import onlytest.vo.TodoListPage;
 @RequestMapping("/todolist")
 @RestController
 public class TodoListController {
+	
+	private static final Logger log = LoggerFactory.getLogger(TodoListController.class);
 
 	@Autowired
 	private ITodoListDAO todoListDAO;
 
 	@GetMapping("/reload")
 	public TodoListPage reload() {
+		log.debug("reload page !!");
 		return transfer();
 	}
 
@@ -39,7 +44,7 @@ public class TodoListController {
 		if (NumberUtils.isDigits(id)) {
 			todoListDAO.completeTodo(Integer.parseInt(id));
 		} else {
-			System.out.println("error");
+			log.warn("completeTodo id must be integer");
 		}
 		return transfer();
 	}

@@ -50,7 +50,8 @@ export default class Todo2 extends React.Component {
             success: function(result,status,xhr) {
                 this.setState({
                     items : result.items,
-                    completedItems : result.completedItems
+                    completedItems : result.completedItems,
+                    text: ''
                 })
             }.bind(this),
             error: function(jqXHR, textStatus, errorThrown) {

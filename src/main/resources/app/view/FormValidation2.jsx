@@ -3,7 +3,7 @@ import { Row, Col, Alert, Button } from 'react-bootstrap';
 
 import FieldGroup from '../component/FieldGroup.jsx';
 
-export default class FormValidation extends React.Component {
+export default class FormValidation2 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setValue = this.setValue.bind(this);
@@ -42,51 +42,26 @@ export default class FormValidation extends React.Component {
 		let alertMessage = null;
 
 		console.log(this.state.bean);
-		let textValue = this.state.bean.formText;
-		let numberValue = this.state.bean.formNumber;
-		let emailValue = this.state.bean.formEmail;
-		let invalid = false;
 
-		if (!textValue) {
-			valBean.formText.validationState = 'error';
-			valBean.formText.helpBlock = 'Required';
-			invalid = true;
-		} else if (textValue.length > 15) {
-			valBean.formText.validationState = 'error';
-			valBean.formText.helpBlock = 'Must be 15 characters or less';
-			invalid = true;
-		}
+        $.ajax({
+            type: "POST",
+            url: "/formvalidation/validate", 
+            data: this.state.bean,
+            success: function(result,status,xhr) {
+            	console.log(result)
+                this.setState({
+                	bean: result.bean,
+                	valBean: result.valBean,
+                	alertStyle: result.alertStyle,
+                	alertMessage: result.alertMessage
+                })
+            }.bind(this),
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('error = ' + errorThrown);
+            }.bind(this)
+        });
 
-		if (!numberValue) {
-			valBean.formNumber.validationState = 'error';
-			valBean.formNumber.helpBlock = 'Required';
-			invalid = true;
-		} else if (isNaN(Number(numberValue))) {
-			valBean.formNumber.validationState = 'error';
-			valBean.formNumber.helpBlock = 'Must be a number';
-			invalid = true;
-		}
 
-		if (!emailValue) {
-			valBean.formEmail.validationState = 'error';
-			valBean.formEmail.helpBlock = 'Required';
-			invalid = true;
-		} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(emailValue)) {
-			valBean.formEmail.validationState = 'error';
-			valBean.formEmail.helpBlock = 'Invalid email address';
-			invalid = true;
-		}
-
-		if (!invalid) {
-			alertStyle = "success";
-			alertMessage = "validate success";
-		}
-
-		this.setState({
-			valBean: valBean,
-			alertStyle: alertStyle,
-			alertMessage: alertMessage
-		});
 	}
 
     render() {
