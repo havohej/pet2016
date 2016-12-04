@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Tab, Row, Col, Nav, NavItem} from 'react-bootstrap';
+import About from './view/About.jsx';
 import Todo from './view/Todo.jsx';
 import Todo2 from './view/Todo2.jsx';
 import FormValidation from './view/FormValidation.jsx';
@@ -13,10 +14,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="4">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="0">
           <Row className="clearfix">
             <Col xs={4} sm={3} md={2}>
               <Nav bsStyle="pills" stacked>
+                <NavItem eventKey="0">
+                  about
+                </NavItem>
                 <NavItem eventKey="1">
                   TodoList (mem)
                 </NavItem>
@@ -31,10 +35,16 @@ class App extends React.Component {
                   Form Validation
                   (back end)
                 </NavItem>
+                <NavItem eventKey="5">
+                  CRUD template
+                </NavItem>
               </Nav>
             </Col>
             <Col xs={8} sm={9} md={10}>
               <Tab.Content animation>
+                <Tab.Pane eventKey="0">
+                  <About />
+                </Tab.Pane>
                 <Tab.Pane eventKey="1">
                   <Todo />
                 </Tab.Pane>
