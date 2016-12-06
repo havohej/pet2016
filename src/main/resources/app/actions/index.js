@@ -1,6 +1,6 @@
-import { createAction } from 'redux-actions';
 import {
-  CREATE_USER
-} from '../constants/actionTypes';
+	createAction
+} from 'redux-actions';
 
+export const changeValue = createAction('CHANGE_VALUE');
 export const createUser = createAction('CREATE_USER');

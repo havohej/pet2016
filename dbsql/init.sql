@@ -14,7 +14,7 @@ create table todolist
 -- create table users
 create table users
 (
-	id varchar(20) primary key,
+	user_id varchar(20) primary key,
 	password varchar(50),
 	role varchar(20),
 	email varchar(50),

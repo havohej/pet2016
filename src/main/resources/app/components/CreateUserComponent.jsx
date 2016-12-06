@@ -1,16 +1,79 @@
 import React from 'react';
 import { Row, Col, Alert, Button } from 'react-bootstrap';
 
-export default class CreateUserComponent extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+import FieldGroup from '../view/FieldGroup.jsx';
 
-    render() {
-        return (
+const CreateUser = ({
+  handleSubmit,
+  setValue,
+  user,
+  userValidation,
+  alertStyle,
+  alertMessage
+}) => (
+
           	<div>
-				This is CreateUserComponent
+          		<Row>
+          			<Col xs={2} sm={2} md={2}>
+				      	<Button onClick={handleSubmit}>
+					      Submit
+					    </Button>
+				    </Col>
+				    <Col xs={10} sm={10} md={10}>
+						<Alert bsStyle={alertStyle}>
+							{alertMessage}
+						</Alert>
+				    </Col>
+			    </Row>
+			    <br />
+			    <Row>
+				    <FieldGroup
+				      id="userId"
+				      type="text"
+				      label="使用者 ID"
+				      value={user.userId}
+				      placeholder="Enter text"
+	                  onChange={(id, value) => {
+	                      setValue(id, value);
+	                  }}
+	                  validation={userValidation.userId}
+				    />
+				    <FieldGroup
+				      id="password"
+				      type="password"
+				      label="密碼"
+				      value={user.password}
+				      placeholder="Enter text"
+	                  onChange={(id, value) => {
+	                      setValue(id, value);
+	                  }}
+	                  validation={userValidation.password}
+				    />
+				    <FieldGroup
+				      id="role"
+				      type="text"
+				      label="群組"
+				      value={user.role}
+				      placeholder="Enter text"
+	                  onChange={(id, value) => {
+	                      setValue(id, value);
+	                  }}
+	                  validation={userValidation.role}
+				    />
+				    <FieldGroup
+				      id="email"
+				      type="email"
+				      label="Email"
+				      value={user.email}
+				      placeholder="Enter text"
+	                  onChange={(id, value) => {
+	                      setValue(id, value);
+	                  }}
+	                  validation={userValidation.email}
+				    />
+              	</Row>   		
         	</div>
-        );
-    }
-}
+
+);
+
+export default CreateUser;

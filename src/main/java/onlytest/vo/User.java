@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class User {
 
-	private String id;
+	private String userId;
 	private String password;
 	private String role;
 	private String email;
@@ -13,19 +13,19 @@ public class User {
 
 	}
 
-	public User(String id, String password, String role, String email) {
-		this.id = id;
+	public User(String userId, String password, String role, String email) {
+		this.userId = userId;
 		this.password = password;
 		this.role = role;
 		this.email = email;
 	}
 
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {
