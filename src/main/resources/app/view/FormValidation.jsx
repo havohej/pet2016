@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Alert, Button } from 'react-bootstrap';
 
-import FieldGroup from '../component/FieldGroup.jsx';
+import FieldGroup from './FieldGroup.jsx';
 
 export default class FormValidation extends React.Component {
 	constructor(props) {

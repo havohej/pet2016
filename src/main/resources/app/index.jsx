@@ -6,15 +6,20 @@ import Todo from './view/Todo.jsx';
 import Todo2 from './view/Todo2.jsx';
 import FormValidation from './view/FormValidation.jsx';
 import FormValidation2 from './view/FormValidation2.jsx';
+import CrudTemplate from './view/CrudTemplate.jsx';
+import { Provider } from 'react-redux';
+import store from './store/configureStore'
+import rootReducer from './reducers'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
+
     return (
       <div>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="0">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="5">
           <Row className="clearfix">
             <Col xs={4} sm={3} md={2}>
               <Nav bsStyle="pills" stacked>
@@ -56,6 +61,11 @@ class App extends React.Component {
                 </Tab.Pane>
                 <Tab.Pane eventKey="4">
                   <FormValidation2 />
+                </Tab.Pane>
+                <Tab.Pane eventKey="5">
+                  <Provider store={store}>
+                    <CrudTemplate />
+                  </Provider>
                 </Tab.Pane>
               </Tab.Content>
             </Col>

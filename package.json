@@ -4,7 +4,8 @@
   "description": "pet project, only for test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
   },
   "author": "",
   "license": "ISC",
@@ -19,12 +20,15 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "immutable": "^3.8.1",
+    "jquery": "^3.1.1",
+    "react": "^15.4.1",
     "react-bootstrap": "^0.30.3",
-    "jquery": "^3.1.1"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+    "react-dom": "^15.4.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.1.0",
+    "redux-immutable": "^3.0.8",
+    "redux-logger": "^2.7.4"
   }
 }
