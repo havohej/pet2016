@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Alert, Button } from 'react-bootstrap';
 
-import FieldGroup from '../view/FieldGroup.jsx';
+import FieldGroup from './FieldGroup.jsx';
 
 const CreateUser = ({
   handleSubmit,
@@ -31,45 +31,45 @@ const CreateUser = ({
 				      id="userId"
 				      type="text"
 				      label="使用者 ID"
-				      value={user.userId}
+				      value={user.get('userId')}
 				      placeholder="Enter text"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
-	                  validation={userValidation.userId}
+	                  validation={userValidation.get('userId')}
 				    />
 				    <FieldGroup
 				      id="password"
 				      type="password"
 				      label="密碼"
-				      value={user.password}
+				      value={user.get('password')}
 				      placeholder="Enter text"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
-	                  validation={userValidation.password}
+	                  validation={userValidation.get('password')}
 				    />
 				    <FieldGroup
 				      id="role"
 				      type="text"
 				      label="群組"
-				      value={user.role}
+				      value={user.get('role')}
 				      placeholder="Enter text"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
-	                  validation={userValidation.role}
+	                  validation={userValidation.get('role')}
 				    />
 				    <FieldGroup
 				      id="email"
 				      type="email"
 				      label="Email"
-				      value={user.email}
+				      value={user.get('email')}
 				      placeholder="Enter text"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
-	                  validation={userValidation.email}
+	                  validation={userValidation.get('email')}
 				    />
               	</Row>   		
         	</div>

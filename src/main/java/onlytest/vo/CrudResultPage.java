@@ -5,12 +5,11 @@ import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class FormValidationPage {
-
+public class CrudResultPage<T> {
 	private String alertStyle;
 	private String alertMessage;
 
-	private FormBean bean;
+	private T bean;
 	private Map<String, ValidationStateBean> valBean = new HashMap<String, ValidationStateBean>();
 
 	public String getAlertStyle() {
@@ -29,11 +28,11 @@ public class FormValidationPage {
 		this.alertMessage = alertMessage;
 	}
 
-	public FormBean getBean() {
+	public T getBean() {
 		return bean;
 	}
 
-	public void setBean(FormBean bean) {
+	public void setBean(T bean) {
 		this.bean = bean;
 	}
 
@@ -49,5 +48,4 @@ public class FormValidationPage {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
-
 }

@@ -16,8 +16,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	handleSubmit: (event) => {
-		dispatch(createUser());
+	handleSubmit: (user) => {
+		dispatch(createUser(user));
 	},
 	setValue: (id, value) => {
 		dispatch(changeValue({
@@ -27,9 +27,19 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 })
 
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+	user: stateProps.user,
+	userValidation: stateProps.userValidation,
+	alertStyle: stateProps.alertStyle,
+	alertMessage: stateProps.alertMessage,
+	handleSubmit: () => dispatchProps.handleSubmit(stateProps.user),
+	setValue: dispatchProps.setValue
+})
+
 const CreateUser = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
+	mergeProps
 )(CreateUserComponent)
 
 export default CreateUser;

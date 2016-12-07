@@ -1,12 +1,22 @@
 package onlytest.vo;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class User {
 
+	@NotEmpty
 	private String userId;
+	
+	@NotEmpty
 	private String password;
+	
+	@NotEmpty
 	private String role;
+	
+	@NotEmpty
+	@Email
 	private String email;
 
 	public User() {

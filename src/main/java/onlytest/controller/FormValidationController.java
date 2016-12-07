@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import onlytest.vo.CrudResultPage;
 import onlytest.vo.FormBean;
-import onlytest.vo.FormValidationPage;
 import onlytest.vo.ValidationStateBean;
 
 @RequestMapping("/formvalidation")
@@ -25,9 +25,9 @@ public class FormValidationController {
 	private static final Logger log = LoggerFactory.getLogger(TodoListController.class);
 
 	@PostMapping("/validate")
-	public FormValidationPage validate(@Valid FormBean bean, BindingResult bindingResult) {
+	public CrudResultPage<FormBean> validate(@Valid FormBean bean, BindingResult bindingResult) {
 
-		FormValidationPage result = new FormValidationPage();
+		CrudResultPage<FormBean> result = new CrudResultPage<FormBean>();
 		result.setBean(bean);
 
 		Map<String, ValidationStateBean> valBean = new HashMap<String, ValidationStateBean>();
