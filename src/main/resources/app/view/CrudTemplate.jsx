@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Row, Col } from 'react-bootstrap';
-import CreateUser from '../containers/CreateUser.jsx'
+import UserListContainer from '../containers/UserListContainer.jsx'
+import CreateUserContainer from '../containers/CreateUserContainer.jsx'
 
 
 export default class CrudTemplate extends React.Component {
@@ -12,7 +13,8 @@ export default class CrudTemplate extends React.Component {
     render() {
         return (
           <div>
-            <CreateUser />
+            <UserListContainer />
+            <CreateUserContainer />
           </div>
         );
     }

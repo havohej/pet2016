@@ -1,5 +1,8 @@
 package onlytest.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import onlytest.vo.User;
@@ -8,4 +11,6 @@ import onlytest.vo.User;
 public interface IUserDAO {
 
 	void addUser(User user);
+
+	List<Map<String, Object>> findUserList();
 }

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class UserController {
 	private IUserDAO userDAO;
 
 	@PutMapping("/addUser")
-	public CrudResultPage<User> addTodo(@RequestBody @Valid User user, BindingResult bindingResult) {
+	public CrudResultPage<User> addUser(@RequestBody @Valid User user, BindingResult bindingResult) {
 		
 		log.debug(String.valueOf(user));
 		
@@ -67,6 +68,11 @@ public class UserController {
 		log.debug(String.valueOf(result));
 
 		return result;
+	}
+	
+	@GetMapping("/findUserList")
+	public List<Map<String, Object>> findUserList() {
+		return userDAO.findUserList();
 	}
 
 }

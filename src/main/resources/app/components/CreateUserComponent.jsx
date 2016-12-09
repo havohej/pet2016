@@ -3,13 +3,15 @@ import { Row, Col, Alert, Button } from 'react-bootstrap';
 
 import FieldGroup from './FieldGroup.jsx';
 
-const CreateUser = ({
-  handleSubmit,
-  setValue,
-  user,
-  userValidation,
-  alertStyle,
-  alertMessage
+const CreateUserComponent = ({
+	// state
+	user,
+	userValidation,
+	alertStyle,
+	alertMessage,
+	// dispatch
+	handleSubmit,
+	setValue
 }) => (
 
           	<div>
@@ -32,7 +34,7 @@ const CreateUser = ({
 				      type="text"
 				      label="使用者 ID"
 				      value={user.get('userId')}
-				      placeholder="Enter text"
+				      placeholder="Enter User ID"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
@@ -43,7 +45,7 @@ const CreateUser = ({
 				      type="password"
 				      label="密碼"
 				      value={user.get('password')}
-				      placeholder="Enter text"
+				      placeholder="Enter Password"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
@@ -54,7 +56,7 @@ const CreateUser = ({
 				      type="text"
 				      label="群組"
 				      value={user.get('role')}
-				      placeholder="Enter text"
+				      placeholder="Enter Role"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
@@ -65,7 +67,7 @@ const CreateUser = ({
 				      type="email"
 				      label="Email"
 				      value={user.get('email')}
-				      placeholder="Enter text"
+				      placeholder="Enter Email"
 	                  onChange={(id, value) => {
 	                      setValue(id, value);
 	                  }}
@@ -76,4 +78,4 @@ const CreateUser = ({
 
 );
 
-export default CreateUser;
+export default CreateUserComponent;

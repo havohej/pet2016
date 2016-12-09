@@ -9,4 +9,8 @@
 		values (#{userId}, #{password}, #{role}, #{email}, NOW())
     </insert>
     
+    <select id="findUserList" resultType="hashMap">
+        select * from users
+    </select>
+    
 </mapper>

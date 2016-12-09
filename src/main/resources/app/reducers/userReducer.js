@@ -15,12 +15,17 @@ const userReducer = handleActions({
 	},
 
 	CREATE_USER: (state, { payload }) => {
-
 		return state.merge({
 			user: payload.bean,
 			userValidation: payload.valBean,
 			alertStyle: payload.alertStyle,
 			alertMessage: payload.alertMessage,
+		})
+	},
+
+	FIND_USER_LIST: (state, { payload }) => {
+		return state.merge({
+			userList: payload
 		})
 	}
 }, UserState);

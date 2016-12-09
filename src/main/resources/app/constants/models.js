@@ -26,5 +26,6 @@ export const UserState = Immutable.fromJS({
 		}
 	},
 	alertStyle: null,
-	alertMessage: null
+	alertMessage: null,
+	userList: null
 });
