@@ -6,6 +6,10 @@ export default class SimpleDataTable extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount(){
+    this.props.refresh();
+  }
   
   render() {
     let tableHeader = [];

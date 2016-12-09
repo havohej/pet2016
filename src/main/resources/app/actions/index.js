@@ -7,7 +7,6 @@ export const changeValue = createAction('CHANGE_VALUE');
 //export const createUser = createAction('CREATE_USER');
 export const createUser = (user) => (
 	(dispatch) => {
-		console.log(user);
 		fetch('/user/addUser', {
 				headers: {
 					'Accept': 'application/json',
@@ -22,6 +21,7 @@ export const createUser = (user) => (
 					type: 'CREATE_USER',
 					payload: json
 				});
+				dispatch(findUserList());
 			});
 	}
 );

@@ -19,7 +19,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	handleSubmit: (user) => {
 		dispatch(createUser(user));
-		dispatch(findUserList());
 	},
 	setValue: (id, value) => {
 		dispatch(changeValue({

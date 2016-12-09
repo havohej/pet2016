@@ -2,13 +2,18 @@ import React from 'react'
 import {
 	connect
 } from 'react-redux'
-import UserListComponent from '../components/UserListComponent.jsx';
+import SimpleDataTable from '../components/SimpleDataTable.jsx';
 import {
 	findUserList
 } from '../actions';
 
 const mapStateToProps = (state) => ({
-	dataList:state.getIn(['userReducer', 'userList']),
+	data:state.getIn(['userReducer', 'userList']),
+    fields:{
+        USER_ID: 'ID',
+        ROLE: '群組',
+        EMAIL: 'Email'
+    }
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,14 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 })
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-	dataList: stateProps.dataList,
-	refresh: dispatchProps.refresh
-})
-
 const UserListContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(UserListComponent)
+)(SimpleDataTable)
 
 export default UserListContainer;
