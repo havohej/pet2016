@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class CrudResultPage<T> {
+public class FormResultPage<T> {
 	private String alertStyle;
 	private String alertMessage;
 

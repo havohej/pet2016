@@ -1,6 +1,7 @@
 import {
 	createAction
 } from 'redux-actions';
+import fetch from 'isomorphic-fetch';
 
 export const changeValue = createAction('CHANGE_VALUE');
 

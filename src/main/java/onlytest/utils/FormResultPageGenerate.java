@@ -1,34 +1,34 @@
-package onlytest.controller;
+package onlytest.utils;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import onlytest.vo.FormResultPage;
-import onlytest.vo.FormBean;
 import onlytest.vo.ValidationStateBean;
 
-@RequestMapping("/formvalidation")
-@RestController
-public class FormValidationController {
-	
-	private static final Logger log = LoggerFactory.getLogger(TodoListController.class);
+public abstract class FormResultPageGenerate<T> {
 
-	@PostMapping("/validate")
-	public FormResultPage<FormBean> validate(@Valid FormBean bean, BindingResult bindingResult) {
+	private static final Logger log = LoggerFactory.getLogger(FormResultPageGenerate.class);
 
-		FormResultPage<FormBean> result = new FormResultPage<FormBean>();
-		result.setBean(bean);
+	T t;
+	BindingResult bindingResult;
+
+	public FormResultPageGenerate(T t, BindingResult bindingResult) {
+		this.t = t;
+		this.bindingResult = bindingResult;
+	}
+
+	public FormResultPage<T> generate() {
+		log.debug(String.valueOf(t));
+
+		FormResultPage<T> result = new FormResultPage<T>();
+		result.setBean(t);
 
 		Map<String, ValidationStateBean> valBean = new HashMap<String, ValidationStateBean>();
 		if (bindingResult.hasErrors()) {
@@ -37,18 +37,28 @@ public class FormValidationController {
 				valBean.put(error.getField(), new ValidationStateBean("error", error.getDefaultMessage()));
 			}
 			result.setValBean(valBean);
+
+			String alertStyle = "danger";
+			String alertMessage = "validate fail";
+			result.setAlertStyle(alertStyle);
+			result.setAlertMessage(alertMessage);
+
 		} else {
+
+			doService();
+
 			String alertStyle = "success";
 			String alertMessage = "validate success";
 			result.setAlertStyle(alertStyle);
 			result.setAlertMessage(alertMessage);
 		}
-		result.setBean(bean);
+		result.setBean(t);
 		result.setValBean(valBean);
 
 		log.debug(String.valueOf(result));
-
 		return result;
 	}
+
+	abstract public void doService();
 
 }

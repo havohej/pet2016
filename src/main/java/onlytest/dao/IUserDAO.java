@@ -13,4 +13,5 @@ public interface IUserDAO {
 	void addUser(User user);
 
 	List<Map<String, Object>> findUserList();
+	
 }

@@ -1,12 +1,14 @@
 package onlytest;
 
 import org.h2.server.web.WebServlet;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@MapperScan("onlytest.dao.xml")
 public class Pet2016Application {
 
 	public static void main(String[] args) {
