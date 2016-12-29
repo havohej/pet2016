@@ -62,7 +62,7 @@ export default class SimpleDataTable extends React.Component {
     }
 
     let overflowStyle = {
-      width: '100%'
+      width: '95%'
     };
 
     return (

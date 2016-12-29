@@ -12,14 +12,14 @@ import org.springframework.validation.FieldError;
 import onlytest.vo.FormResultPage;
 import onlytest.vo.ValidationStateBean;
 
-public abstract class FormResultPageGenerate<T> {
+public abstract class FormResultPageGenerator<T> {
 
-	private static final Logger log = LoggerFactory.getLogger(FormResultPageGenerate.class);
+	private static final Logger log = LoggerFactory.getLogger(FormResultPageGenerator.class);
 
 	T t;
 	BindingResult bindingResult;
 
-	public FormResultPageGenerate(T t, BindingResult bindingResult) {
+	public FormResultPageGenerator(T t, BindingResult bindingResult) {
 		this.t = t;
 		this.bindingResult = bindingResult;
 	}

@@ -33,13 +33,13 @@ public class TodoListController {
 		return transfer();
 	}
 
-	@PutMapping("/addTodo")
+	@PostMapping("/addTodo")
 	public TodoListPage addTodo(@RequestParam("text") String text) {
 		todoListDAO.addTodo(text);
 		return transfer();
 	}
 
-	@PostMapping("/completeTodo")
+	@PutMapping("/completeTodo")
 	public TodoListPage completeTodo(@RequestParam("id") String id) {
 		if (NumberUtils.isDigits(id)) {
 			todoListDAO.completeTodo(Integer.parseInt(id));

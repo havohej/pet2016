@@ -13,7 +13,7 @@ export const createUser = (user) => (
 					'Accept': 'application/json',
 					'Content-Type': 'application/json'
 				},
-				method: 'PUT',
+				method: 'POST',
 				body: JSON.stringify(user)
 			})
 			.then(response => response.json())

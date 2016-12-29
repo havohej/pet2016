@@ -10,6 +10,7 @@ import CrudTemplate from './view/CrudTemplate.jsx';
 import { Provider } from 'react-redux';
 import store from './store/configureStore'
 import rootReducer from './reducers'
+import './css/pet2016.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends React.Component {
 
     return (
       <div>
-      <Tab.Container id="left-tabs-example" defaultActiveKey="5">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="0">
           <Row className="clearfix">
             <Col xs={4} sm={3} md={2}>
               <Nav bsStyle="pills" stacked>

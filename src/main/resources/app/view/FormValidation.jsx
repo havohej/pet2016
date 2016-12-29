@@ -106,6 +106,7 @@ export default class FormValidation extends React.Component {
 			    </Row>
 			    <br />
 			    <Row>
+			        <Col xs={11} sm={11} md={11}>
 				    <FieldGroup
 				      id="formText"
 				      type="text"
@@ -139,6 +140,7 @@ export default class FormValidation extends React.Component {
 	                  }}
 	                  validation={this.state.valBean.formEmail}
 				    />
+				    </Col>  		
               	</Row>   		
         	</div>
         );

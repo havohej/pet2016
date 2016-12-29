@@ -29,6 +29,7 @@ const CreateUserComponent = ({
 			    </Row>
 			    <br />
 			    <Row>
+			        <Col xs={11} sm={11} md={11}>
 				    <FieldGroup
 				      id="userId"
 				      type="text"
@@ -73,7 +74,8 @@ const CreateUserComponent = ({
 	                  }}
 	                  validation={userValidation.get('email')}
 				    />
-              	</Row>   		
+				    </Col>
+			    </Row>   		
         	</div>
 
 );

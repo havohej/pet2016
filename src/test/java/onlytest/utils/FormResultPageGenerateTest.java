@@ -38,7 +38,7 @@ public class FormResultPageGenerateTest {
 		allErrors.add(fieldError);
 		Mockito.when(bindingResult.getFieldErrors()).thenReturn(allErrors);
 		
-		FormResultPageGenerate<User> formResultPageGenerate = new FormResultPageGenerate<User>(user, bindingResult) {
+		FormResultPageGenerator<User> formResultPageGenerate = new FormResultPageGenerator<User>(user, bindingResult) {
 			@Override
 			public void doService() {}
 		};

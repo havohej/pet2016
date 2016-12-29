@@ -44,7 +44,7 @@ export default class Todo2 extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         $.ajax({
-            type: "PUT",
+            type: "POST",
             url: "/todolist/addTodo", 
             data: {text: this.state.text},
             success: function(result,status,xhr) {
@@ -62,7 +62,7 @@ export default class Todo2 extends React.Component {
 
     handleCompleted(event, item, key) {
         $.ajax({
-            type: "POST",
+            type: "PUT",
             url: "/todolist/completeTodo", 
             data: {id: item.ID},
             success: function(result,status,xhr) {

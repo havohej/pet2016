@@ -9,17 +9,15 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import onlytest.Pet2016Application;
 import onlytest.vo.User;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Pet2016Application.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 @Transactional
-public class UserDAOTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class UserDAOTest {
 
 	@Autowired
 	private IUserDAO userDAO;
